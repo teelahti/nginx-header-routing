@@ -1,0 +1,21 @@
+proxy:
+  build: proxy/.
+  ports:
+   - "80:80"
+  links:
+   - web1
+   - web2
+web1:
+  build: web/.
+  name: web1
+  environment:
+    APPVERSION: "1.0.0"
+  expose: 
+   - "8080"
+web2:
+  build: web/.
+  name: web2
+  environment:
+    APPVERSION: "1.1.0"
+  expose: 
+   - "8080"
